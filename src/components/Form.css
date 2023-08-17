@@ -1,0 +1,38 @@
+.form__container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__textarea{
+    display: flex;
+}
+.form__textarea > textarea{
+    border: 1px solid black;
+    padding: 10px;
+}
+.line{
+    width: 1px;
+    height: 20px;
+    background-color: gray;
+}
+.form__language__selection{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.form__select{
+    border: none!important;
+    outline: none!important;
+    background: none!important;
+}
+.btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: lightblue;
+}
