@@ -80,8 +80,12 @@ try {
   if(response.ok){
     setLoading(false);
   }
+  if(response.ok){
 	const result = await response.json();
 	changeTranslatedText(()=>{return result.data.translations[0].translatedText});
+  }else{
+    alert('could not translate sorry , specify some other language')
+  }
 } catch (error) {
 	console.error(error);
 }
