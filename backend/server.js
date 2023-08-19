@@ -1,4 +1,4 @@
-const Replicate  = require("replicate");
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -11,7 +11,6 @@ app.use(express.urlencoded({extended : true}));
 
 app.listen('4000',()=>{
     console.log('listening to the server 4000');
-    console.log('the token is : ',process.env.REPLICATE_API_TOKEN);
 })
 app.post('/generate',async (req,res)=>{
     // console.log(req.body);
