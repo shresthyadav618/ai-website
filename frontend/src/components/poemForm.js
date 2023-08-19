@@ -69,7 +69,8 @@ export default function usePoem() {
           <button
             onClick={()=>{
                 SpeechRecognition.stopListening();
-                changeData((prev)=>{return prev + transcript})
+                changeData((prev)=>{return prev + transcript});
+                transcript='';
             }}
             type="button"
             className="btn"
