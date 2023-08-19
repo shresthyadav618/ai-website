@@ -1,13 +1,17 @@
 import "@fortawesome/fontawesome-free/css/all.css";
 import { useEffect, useState } from "react";
+// import ClipLoader from "react-spinners/ClipLoader";
+import MoonLoader from "react-spinners/MoonLoader";
 import { supportedLanguages } from "../api/api";
 import "./styles/Form.css";
 export default function useForm() {
   const [select, changeSelect] = useState(null);
+  const [loading,setLoading] = useState(false);
   const [translatedText, changeTranslatedText] = useState(null);
   useEffect(() => { 
     console.log(process.env.REACT_APP_API_KEY);
     async function getData() {
+      
       const url = supportedLanguages;
       const options = {
         method: "GET",
@@ -18,7 +22,9 @@ export default function useForm() {
       };
 
       try {
+        
         const response = await fetch(url, options);
+       
         const result = await response.json();
         console.log(result.languages);
 
@@ -48,9 +54,11 @@ console.log(select)
   });
 
   function handleSubmit(e) {
+    setLoading(true);
     e.preventDefault();
 
     async function GetTranslation() {
+      
       const url = 'https://google-translate1.p.rapidapi.com/language/translate/v2';
 const options = {
 	method: 'POST',
@@ -69,6 +77,9 @@ const options = {
 
 try {
 	const response = await fetch(url, options);
+  if(response.ok){
+    setLoading(false);
+  }
 	const result = await response.json();
 	changeTranslatedText(()=>{return result.data.translations[0].translatedText});
 } catch (error) {
@@ -83,9 +94,12 @@ console.log(data);
 
 
   return (
-    <div className="form__container">
+    <div className="form__container flex flex-col gap-y-10">
+      <h1 className="form__heading">CONVERT</h1>
+        {loading && <MoonLoader color="#36d7b7" />}
+        
       <form>
-        <div className="form__textarea">
+        <div className="form__textarea gap-x-2">
           <textarea value={data.content} placeholder="Enter Text" cols={"40"}  rows={"10"} onChange={(e)=>{changeData((prev)=>{
             return {...prev, content : e.target.value}
           })}}></textarea>

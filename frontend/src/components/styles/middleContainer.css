@@ -3,14 +3,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 100vw;
 }
 
 .first__container > h1{
     color: rgb(96, 150, 186);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    font-family: 'Barriecito', cursive;
     font-weight: bolder;
-    font-size: xx-large;
-    max-width: 40%;
+    font-size: x-large;
+    width: 30%;
     letter-spacing: -1px;
 }
 .first__container{
@@ -27,30 +29,7 @@
     font-size: x-large;
 }
 
-.second__container{
-    min-width: 80vw;
-    max-width: 100vw;
-    margin: 140px auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.second__container > p{
-    width: 480px;
-    text-align: center;
-    margin-top: 40px;
-    font-size: x-large;
-    line-height: 27px;
-}
-.second__container > h1{
-    color: rgb(139, 140, 137);
-    font-size: 80px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bolder;
-    letter-spacing: -10px;
-}
+
 @media screen and (max-width:1280px){
     .first__container > span{
         min-width: 90%;
@@ -60,36 +39,21 @@
     }
     .first__container{
         margin-left: 40px;
+        align-items: center;
     }
-    .second__container{
-        width: 100vw;
-        align-items: unset;
-        margin-left: 40px;
-    }
-    .second__container >p{
-        text-align: left;
-        font-size: xx-large;
-        width: 60%;
-        line-height: 35px;
-    }
+
 }
 
-@media screen and (max-width:1000px){
-    .second__container >h1{
-        font-size: 60px;
-    }
-}
+
 @media screen and (max-width:720px){
-    .second__container >h1{
-        font-size: 40px;
-        letter-spacing: -5px;
-    }
+    
     .first__container > span{
         min-width: 100%;
     }
     .first__container > h1{
         min-width: 100%;
     }
+    
 }
 @media screen and (max-width:600px){
     .first__container{
@@ -102,23 +66,6 @@
     .first__container > h1{
         font-size: x-large;
     }
-    .second__container{
-        margin: 40px auto;
-        width: 100vw;
-        
-    }
-    .second__container > h1{
-        font-size: 30px;
-    }
-    .second__container >p{
-        font-size: large;
-    }
+   
 }
-@media screen and (max-width:520px){
-    .second__container >h1{
-        font-size: 30px;
-    }
-    .second__container > p{
-        width: 300px;
-    }
-}
+
