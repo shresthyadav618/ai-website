@@ -114,12 +114,12 @@ console.log(data);
         <div className="form__language__selection">
           <div className="flex justify-center f items-center">
             <div className="flex gap-x-2 mr-4  justify-center items-center">
-              <i class="fa-solid fa-volume-high" style={{ color: "gray" , size : 'xl' }} onClick={()=>{
+              <i class="fa-solid fa-volume-high cursor-pointer" style={{ color: "gray" , size : 'xl' }} onClick={()=>{
                 const utterance = new SpeechSynthesisUtterance(data.content);
                 utterance.lang = data.from.code
                 speechSynthesis.speak(utterance)
               }}></i>
-              <i class="fa-solid fa-file" onClick={()=>{
+              <i class="fa-solid fa-file cursor-pointer" onClick={()=>{
                 console.log('clicked to copy',data.content)
                 navigator.clipboard.writeText(data.content)
 
@@ -129,7 +129,7 @@ console.log(data);
 
             {/* <input></input> */}
            
-            <select className="form__select"    onChange={(e)=>{
+            <select className="form__select cursor-pointer"    onChange={(e)=>{
               const parsedJson = JSON.parse(e.target.value);
               changeData((prev)=>  {  return {...prev, from : {code : parsedJson.code , lang : parsedJson.lang }}})
               console.log(data)
@@ -158,7 +158,7 @@ console.log(data);
           <div className="flex flex-row-reverse s justify-center items-center">
             <div className="flex gap-x-2 ml-4  justify-center items-center">
               <div className="line"></div>
-              <i class="fa-solid fa-volume-high" style={{ color: "gray" }} onClick={()=>{
+              <i class="fa-solid fa-volume-high cursor-pointer" style={{ color: "gray" }} onClick={()=>{
               
                 const utterance = new SpeechSynthesisUtterance(translatedText);
                 utterance.lang = data.to.code
@@ -169,13 +169,13 @@ console.log(data);
                 // utterance.lang = data.to.code;
                 // speechSynthesis.speak(utterance)
               }}></i>
-              <i class="fa-solid fa-file" onClick={()=>{
+              <i class="fa-solid fa-file cursor-pointer" onClick={()=>{
                 console.log('clicked to copy',translatedText)
                 navigator.clipboard.writeText(translatedText)
               }} style={{ color: "gray" }}></i>
             </div>
 
-            <select className="form__select"   onChange={(e)=>{
+            <select className="form__select cursor-pointer"   onChange={(e)=>{
                const parsedJson = JSON.parse(e.target.value);
                changeData((prev)=>  {  return {...prev, to : {code : parsedJson.code , lang : parsedJson.lang }}})
                console.log(data)

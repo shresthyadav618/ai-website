@@ -5,10 +5,12 @@ import "./styles/Form.css";
 export default function usePoem() {
     const startListening = ()=> SpeechRecognition.startListening({continuous : true, language :'en-IN'});
 
-    const {transcript,browserSupportsSpeechRecognition} = useSpeechRecognition();
+    const {browserSupportsSpeechRecognition  } = useSpeechRecognition();
+    let {transcript} = useSpeechRecognition();
     console.log(transcript);
     const [loading , setLoading] = useState(false);
-  const [data, changeData] = useState(transcript);
+  const [data, changeData] = useState();
+//   transcript = data + transcript;
   const [generate, changeGenerate] = useState(null);
   const BASE_URL = `https://openagent.onrender.com`;
 //   const [isListening, changeIsListening] = useState(false);
@@ -47,14 +49,16 @@ export default function usePoem() {
         <div className="flex gap-x-2 form__textarea">
         <textarea
           onChangeCapture={(e) => {
+            
             changeData(() => {
               return e.target.value;
             });
-          }} value={data}
-          className="p-4 outline-none rounded-lg"
+
+          }} value={data} readOnly
+          className="p-4 outline-none rounded-lg pointer-events-none caret-transparent"
           cols={"40"}
           rows={"10"}
-          placeholder="ask openAI something..."
+          placeholder="ask openAI something... (allow for microphone access, and click on start listening to take input (chrome compatible) )"
         ></textarea>
         <textarea placeholder="your response will be shown here..." value={generate} className="p-4 outline none rounded-lg" cols={'40'} rows={'10'} ></textarea>
         </div>
@@ -62,15 +66,14 @@ export default function usePoem() {
           <button
             className="btn"
             type="button"
-            onClick={startListening}
+            onClick={()=>{ startListening();}}
           >
             Start Listening
           </button>{" "}
           <button
             onClick={()=>{
                 SpeechRecognition.stopListening();
-                changeData((prev)=>{return prev + transcript});
-                transcript='';
+                changeData(()=>{return transcript});
             }}
             type="button"
             className="btn"

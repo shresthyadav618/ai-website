@@ -11,7 +11,12 @@ app.use(express.urlencoded({extended : true}));
 
 app.listen('4000',()=>{
     console.log('listening to the server 4000');
+});
+
+app.get('/',(req,res)=>{
+  res.send('this is manu the great');
 })
+
 app.post('/generate',async (req,res)=>{
     // console.log(req.body);
     const { data }  =  req.body;
