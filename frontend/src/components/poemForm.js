@@ -10,12 +10,12 @@ export default function usePoem() {
     const [loading , setLoading] = useState(false);
   const [data, changeData] = useState(transcript);
   const [generate, changeGenerate] = useState(null);
-  
+  const BASE_URL = `https://openagent.onrender.com`;
 //   const [isListening, changeIsListening] = useState(false);
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    const request = await fetch("http://localhost:4000/generate", {
+    const request = await fetch(`${BASE_URL}/generate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ data: data }),
