@@ -100,7 +100,7 @@ console.log(data);
   return (
     <div className="form__container flex flex-col gap-y-10">
       <h1 className="form__heading">CONVERT</h1>
-        {loading && <MoonLoader color="#36d7b7" />}
+        {loading && <MoonLoader color="#36d7b7" margin="10px auto" />}
         
       <form>
         <div className="form__textarea gap-x-2">

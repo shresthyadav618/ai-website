@@ -43,7 +43,7 @@ export default function usePoem() {
   return (
     <div className="form__container flex flex-col gap-y-10">
         <h1 className="form__heading">ASK OPENAI</h1>
-        {loading && <MoonLoader color="#36d7b7" />}
+        {loading && <MoonLoader color="#36d7b7" margin="10px auto" />}
         
       <form>
         <div className="flex gap-x-2 form__textarea">
