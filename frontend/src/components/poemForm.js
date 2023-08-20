@@ -5,8 +5,8 @@ import "./styles/Form.css";
 export default function usePoem() {
     const startListening = ()=> SpeechRecognition.startListening({continuous : true, language :'en-IN'});
 
-    const {browserSupportsSpeechRecognition  } = useSpeechRecognition();
-    let {transcript} = useSpeechRecognition();
+    const {browserSupportsSpeechRecognition  ,resetTranscript , transcript } = useSpeechRecognition();
+    // let {transcript} = useSpeechRecognition();
     console.log(transcript);
     const [loading , setLoading] = useState(false);
   const [data, changeData] = useState();
@@ -62,7 +62,7 @@ export default function usePoem() {
         ></textarea>
         <textarea placeholder="your response will be shown here..." value={generate} className="p-4 outline none rounded-lg" cols={'40'} rows={'10'} ></textarea>
         </div>
-        {browserSupportsSpeechRecognition && <div className="flex gap-x-2">
+        {browserSupportsSpeechRecognition && <div className="flex gap-x-2 dpf">
           <button
             className="btn"
             type="button"
@@ -80,6 +80,7 @@ export default function usePoem() {
           >
             Stop Listening
           </button>
+          <button className="btn" type="button" onClick={()=>{resetTranscript();changeData(()=>{return ''})}}>Clear Text</button>
         </div>}
         <button className="btn " onClick={(e) => handleSubmit(e)}>
           Generate

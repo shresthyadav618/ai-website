@@ -57,7 +57,9 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
+.form__container > span{
+    margin: 40px auto;
+}
 @media screen and (max-width:1000px){
     .form__heading{
         font-size: 60px;
@@ -69,8 +71,9 @@
         font-size: 40px;
         letter-spacing: -5px;
     }
+    
     .form__container{
-        margin: 40px auto;
+        margin: 80px auto;
     }
     .form__textarea{
         flex-direction: column;
@@ -106,5 +109,16 @@
     }
     .fa-solid{
         font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width:490px) {
+    .dpf{
+        flex-direction: column!important;
+
+    }
+    .dpf > button{
+        margin-top: 10px!important;
+        margin-bottom: 10px!important;
     }
 }
